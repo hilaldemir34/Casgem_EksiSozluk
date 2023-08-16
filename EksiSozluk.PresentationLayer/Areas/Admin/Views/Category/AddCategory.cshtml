@@ -1,0 +1,24 @@
+﻿@model EksiSozluk.EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout1.cshtml";
+}
+
+<h2>Kategori Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.CategoryID)
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x=>x.CategoryName,new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.CategoryName)
+    <br />
+    @Html.Label("Kategori Açıklaması")
+    @Html.TextAreaFor(x=>x.CategoryDescription,15,3,new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.CategoryDescription)
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+    
+}
+
